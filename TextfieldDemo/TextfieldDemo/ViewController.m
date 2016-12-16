@@ -11,8 +11,6 @@
 @interface ViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpace;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (weak, nonatomic)  UITextField *firstResponseTF;
-@property (weak, nonatomic) IBOutlet UITextField *textfieldTop;
 
 @property (assign, nonatomic)  BOOL hideInner;
 @end
@@ -21,12 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.textField.delegate=self;
-    self.textfieldTop.delegate=self;
-    
-    
-    self.firstResponseTF=self.textField;
-    
     //简历通知
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
     self.bottomSpace.constant=-50;
@@ -35,9 +27,7 @@
     [self.textField becomeFirstResponder];
 }
 -(void)keyboardWillChangeFrameNotification:(NSNotification *)note{
-    if (!self.hideInner) {
-        return;
-    }
+
     //获取键盘的饿frame
     CGRect frmae = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
