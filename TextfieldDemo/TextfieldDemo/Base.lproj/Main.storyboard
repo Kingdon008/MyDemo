@@ -33,12 +33,13 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5h-7O-g8M">
                                         <rect key="frame" x="321" y="12" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="发表">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.77060837819786265" green="0.77872004533678751" blue="0.77872004533678751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="A1p-GK-mgB" firstAttribute="leading" secondItem="sJ9-Mf-4c4" secondAttribute="leading" id="06J-AP-Yuz"/>
                                     <constraint firstItem="A1p-GK-mgB" firstAttribute="top" secondItem="sJ9-Mf-4c4" secondAttribute="top" constant="8" id="RyA-gy-TUJ"/>
@@ -55,13 +56,6 @@
                                     <action selector="clickAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ODP-Ik-7Id"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VcK-x4-x80">
-                                <rect key="frame" x="124" y="274" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -73,7 +67,6 @@
                     <connections>
                         <outlet property="bottomSpace" destination="0DN-jY-FRD" id="ta6-Lm-QBV"/>
                         <outlet property="textField" destination="A1p-GK-mgB" id="owE-7I-rA7"/>
-                        <outlet property="textfieldTop" destination="VcK-x4-x80" id="21f-9s-TIW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
