@@ -11,7 +11,7 @@
 @interface ViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpace;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-
+@property (weak, nonatomic)  UITextField *firstResponseTF;
 
 @end
 
@@ -32,29 +32,33 @@
 -(void)keyboardWillChangeFrameNotification:(NSNotification *)note{
     //获取键盘的饿frame
     CGRect frmae = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    
+    NSLog(@"%@", note);
     //让TextFiled的底部约束间距为屏幕高度减去键盘顶部的y值即可
     //注意 这里不要使其等于键盘的高度，因为高度时死的，会导致键盘下去后，TextField并未下去的结果。
-    self.bottomSpace.constant = [UIScreen mainScreen].bounds.size.height - frmae.origin.y;
-    
-    //获取键盘的动画时间，使TextField与键盘的形态一致
-    CGFloat interval = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    //设置Text的动画
-    [UIView animateWithDuration:interval animations:^{
+    if (self.firstResponseTF.tag == self.textField.tag) {
+        self.bottomSpace.constant = [UIScreen mainScreen].bounds.size.height - frmae.origin.y;
         
-        //注意这里不是改变值，之前已经改变值了，
-        //在这里需要做的事强制布局
-        [self.view layoutIfNeeded];
-        
-    }];
+        //获取键盘的动画时间，使TextField与键盘的形态一致
+        CGFloat interval = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        //设置Text的动画
+        [UIView animateWithDuration:interval animations:^{
+            
+            //注意这里不是改变值，之前已经改变值了，
+            //在这里需要做的事强制布局
+            [self.view layoutIfNeeded];
+            
+        }];
+    }
     
 }
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    self.firstResponseTF = textField;
+    return YES;
+}
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    
-    
-    
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    self.firstResponseTF = nil;
+    return YES;
 }
 
 
